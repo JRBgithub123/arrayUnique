@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*1.创建一个新的数组存放结果
+			2.创建一个空对象
+			3.for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它存放到结果数组中，同时把这个元素的内容作为对象的一个属性，并赋值为1，存入到第2步建立的对象中。
+			4.接下来的for循环是存储数组中重复的元素，将元素的内容当做属性，属性值是这个元素在数组中出现的次数；
+			*/
+			function unique(arr){
+				var newArr=[];
+				var obj={};
+			
+			
+				for(var i in arr){				
+					if(!obj[arr[i]]){
+						newArr.push(arr[i]);
+						obj[arr[i]]=1;
+					}else{
+						obj[arr[i]]++;					
+					}
+				}
+				
+			
+					for(var j in obj){
+						if(obj[j]==1){					
+							delete obj[j];
+						}
+					}			
+					return newArr;
+				}
+				
+			
+			var arr=[1,2,5,2,"a","bb","bb"];			
+			console.log(unique(arr));
+			
+			
+			
+		</script>
+	</body>
+</html>
